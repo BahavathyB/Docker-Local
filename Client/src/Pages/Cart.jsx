@@ -154,7 +154,7 @@ export const Cart = () => {
                   <div className="p-4">
                     <p className="font-italic mb-4">
                       Shipping and additional costs are calculated based on
-                      values you have entered.
+                      values you have entered. Here, it is.
                     </p>
                     <ul className="list-unstyled mb-4">
                       <li className="d-flex justify-content-between py-3 border-bottom">
