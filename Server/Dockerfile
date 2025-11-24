@@ -1,14 +1,13 @@
-# Base image
-FROM openjdk:17-oracle
-
-# Set working directory
+# Use Maven image to build the project
+FROM maven:3.9.3-eclipse-temurin-20 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copy JAR file
-COPY target/organica-0.0.1-SNAPSHOT.jar myapp.jar
-
-# Expose port 8080
-EXPOSE 9090
-
-# Start the Java Spring Boot application
-CMD ["java", "-jar", "myapp.jar"]
+# Use JDK image to run the jar
+FROM eclipse-temurin:20-jdk
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]

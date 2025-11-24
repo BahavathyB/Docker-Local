@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
-    @Value("${razorpay.key_id}")
-    private String KEY;
-    @Value("${razorpay.key_secret}")
-    private String SECRET_KEY;
+
+    private String KEY = "1";
+
+    private String SECRET_KEY = "1234";
     private final String CURRENCY="INR";
 
 

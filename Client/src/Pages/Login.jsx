@@ -41,7 +41,7 @@ export const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:9090/auth/singin", {
+    const res = await fetch("http://localhost:8080/auth/singin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
